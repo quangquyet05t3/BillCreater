@@ -1,9 +1,9 @@
 <?php
-    if(isset($_POST["quantity"])){
-        $nameSetting = $_POST['name'];
-        $quantitySetting = $_POST['quantity'];
+    if(isset($_GET["quantity"])){
+        $nameSetting = $_GET['name'];
+        $quantitySetting = $_GET['quantity'];
     }else {
-        header('Location: create.php');
+        //header('Location: create.php');
     }
 ?>
 <!DOCTYPE html>
@@ -23,6 +23,44 @@
 
 
     <script>
+        $(document).ready(function(){
+            var quantitySetting = <?php echo $quantitySetting; ?>;
+
+            $('input').focusout(function(){
+                var id = ($(this).attr('id'));
+                if(isCalculator(id)){
+                    var splitId = id.split("-");
+                    var i = splitId[1];
+                    var priceId = '#price-'+i;
+                    var quantityId = '#quantity-'+i;
+                    var totalId = '#total-'+i;
+                    if($(priceId).val()!="" && $(quantityId).val()!=""){
+                        var totalItem = parseInt($(priceId).val() )* parseInt($(quantityId).val());
+                        $(totalId).val(totalItem);
+                    }
+                    calculateAll(quantitySetting);
+                }
+            });
+
+            function calculateAll(quantitySetting) {
+                var total = 0;
+                for(var i=1; i<=quantitySetting;i++) {
+                    var totalId = '#total-'+i;
+                    if($(totalId).val()!=""){
+                        total += parseInt($(totalId).val());
+                    }
+                }
+                $('#total').val(total);
+            }
+
+            function isCalculator(id) {
+                if(id.indexOf("price")!=-1 || id.indexOf("quantity")!=-1 || id.indexOf("total")!=-1) {
+                    return true;
+                }
+                return false;
+            }
+        });
+
         $( document ).on( "pagecreate", function() {
             $( "body > [data-role='panel']" ).panel();
             $( "body > [data-role='panel'] [data-role='listview']" ).listview();
@@ -31,6 +69,8 @@
             $( "body > [data-role='header']" ).toolbar();
             $( "body > [data-role='header'] [data-role='navbar']" ).navbar();
         });
+
+
 
 
 
@@ -60,13 +100,14 @@
                         $name = 'name-'.$i;
                         $price = 'price-'.$i;
                         $quantity = 'quantity-'.$i;
+                        $total = 'total-'.$i;
                     ?>
                     <fieldset class="ui-grid-d">
                         <div class="ui-block-a"><input type="text" id="<?php echo $name; ?>" name="<?php echo $name; ?>" value="<?php echo $i; ?>" style="text-align: center;"></div>
                         <div class="ui-block-b"><input type="text" value=""></div>
                         <div class="ui-block-c"><input type="number" id="<?php echo $price; ?>" name="<?php echo $price; ?>" pattern="[0-9]*" value="" style="text-align: right;"></div>
                         <div class="ui-block-d"><input type="number" id="<?php echo $quantity; ?>" name="<?php echo $quantity; ?>" pattern="[0-9]*" value="" style="text-align: right;"></div>
-                        <div class="ui-block-e"><input type="number" name="number-4" pattern="[0-9]*" value="" style="text-align: right;"></div>
+                        <div class="ui-block-e"><input type="number" id="<?php echo $total; ?>" pattern="[0-9]*" value="" style="text-align: right;"></div>
                     </fieldset>
                 <?php endfor ?>
 
@@ -98,3 +139,4 @@
 
 </body>
 </html>
+

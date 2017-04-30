@@ -25,6 +25,9 @@
             $( "body > [data-role='header'] [data-role='navbar']" ).navbar();
         });
 
+
+
+
         $(document).ready(function(){
             $("#btn-create").on('click', function(){
                 if(validate()){
@@ -41,9 +44,6 @@
                 alert('press');
             });
 
-            $('#price-1').keypress(function(){
-                alert('press');
-            });
 
             var validate = function(){
                 return true;
@@ -64,7 +64,7 @@
     <div role="main" class="ui-content">
 
         <h2>Thiết lập</h2>
-        <form id="frm-bill-setting" method="post" action="detail.php">
+        <form id="frm-bill-setting" method="get" action="detail.php">
             <label for="text-1">Tên khách:</label>
             <input type="text" name="name" id="txt-name" value="">
             <label for="number-2">Số hàng:</label>
