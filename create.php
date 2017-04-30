@@ -38,11 +38,10 @@
     <div role="main" class="ui-content">
 
         <h2>Nhập thông tin bill</h2>
-
-
-
     </div><!-- /content -->
-
+    <div data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&nbsp;</h1>
+    </div><!-- /footer -->
 
 </div><!-- /page -->
 

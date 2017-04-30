@@ -43,9 +43,13 @@
 
 
     </div><!-- /content -->
-
+    <div data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&nbsp;</h1>
+    </div><!-- /footer -->
 
 </div><!-- /page -->
+
+
 
 <div data-role="panel" id="outside" data-theme="b">
     <ul data-role="listview">
