@@ -22,3 +22,7 @@
 .ui-input-text {
     margin: 0px !important;
 }
+
+input {
+    font-weight: bold !important;
+}

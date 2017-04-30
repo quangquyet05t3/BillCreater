@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>External and internal panels</title>
+    <title>Tạo Bill Mới</title>
     <link rel="shortcut icon" href="jquery-mobile/demos/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
@@ -24,6 +24,32 @@
             $( "body > [data-role='header']" ).toolbar();
             $( "body > [data-role='header'] [data-role='navbar']" ).navbar();
         });
+
+        $(document).ready(function(){
+            $("#btn-create").on('click', function(){
+                if(validate()){
+                    $("#frm-bill-setting").submit();
+                }
+            });
+
+            $("#btn-reset").on('click', function(){
+                $("#txt-name").text("");
+                $("#txt-quantity").text("");
+            });
+
+            $('#quantity').keypress(function(){
+                alert('press');
+            });
+
+            $('#price-1').keypress(function(){
+                alert('press');
+            });
+
+            var validate = function(){
+                return true;
+            }
+        });
+
     </script>
 </head>
 <body>
@@ -37,7 +63,15 @@
 
     <div role="main" class="ui-content">
 
-        <h2>Nhập thông tin bill</h2>
+        <h2>Thiết lập</h2>
+        <form id="frm-bill-setting" method="post" action="detail.php">
+            <label for="text-1">Tên khách:</label>
+            <input type="text" name="name" id="txt-name" value="">
+            <label for="number-2">Số hàng:</label>
+            <input type="number" id="quantity" name="quantity" pattern="[0-9]*" id="txt-quantity" value="10" style="text-align: right;">
+            <input id="btn-create" type="button" value="Tạo bill" data-inline="true">
+            <input id="btn-reset" type="reset" value="Nhập lại" data-inline="true">
+        </form>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed" data-theme="a">
         <h1>&nbsp;</h1>
