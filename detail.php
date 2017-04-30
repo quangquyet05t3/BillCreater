@@ -25,21 +25,48 @@
     <script>
         $(document).ready(function(){
             var quantitySetting = <?php echo $quantitySetting; ?>;
+            $('input').keyup(function(e){
+                var id = ($(this).attr('id'));
+                if(e.keyCode==13 && id!='total') {
+                    var splitId = id.split("-");
+                    var name = splitId[0];
+                    var i = splitId[1];
+                    i++;
+                    var nextId = '#'+name+'-'+(i);
+                    $(nextId).focus();
+                } else {
+                    if(isPriceQuantity(id)){
+                        this.value = this.value.replace(/[^0-9]/g,'');
+                    }
+                    if(isTotal(id)) {
+                        this.value = this.value.replace(/[^0-9\.]/g,'');
+                    }
+                }
+            });
+
+
 
             $('input').focusout(function(){
                 var id = ($(this).attr('id'));
-                if(isCalculator(id)){
+                if(isTotal(id) && $(this).val()>0){
+                    var valueString = $(this).val();
+                    var value = valueString.replace(/\./g, '');
+                    $(this).val(format(parseInt(value)));
+                }
+                if(isPriceQuantity(id)||isTotal(id)){
                     var splitId = id.split("-");
                     var i = splitId[1];
                     var priceId = '#price-'+i;
                     var quantityId = '#quantity-'+i;
                     var totalId = '#total-'+i;
+                    var nameId = '#name-'+i;
                     if($(priceId).val()!="" && $(quantityId).val()!=""){
                         var totalItem = parseInt($(priceId).val() )* parseInt($(quantityId).val());
-                        $(totalId).val(totalItem);
+                        $(totalId).val(format(totalItem));
                     }
                     calculateAll(quantitySetting);
                 }
+
             });
 
             function calculateAll(quantitySetting) {
@@ -47,14 +74,30 @@
                 for(var i=1; i<=quantitySetting;i++) {
                     var totalId = '#total-'+i;
                     if($(totalId).val()!=""){
-                        total += parseInt($(totalId).val());
+                        var totalItemString = $(totalId).val();
+                        var totalItem = totalItemString.replace(/\./g, '');
+
+                        total += parseInt(totalItem);
                     }
                 }
-                $('#total').val(total);
+                $('#total').val(format(total));
             }
 
-            function isCalculator(id) {
-                if(id.indexOf("price")!=-1 || id.indexOf("quantity")!=-1 || id.indexOf("total")!=-1) {
+            function format(number) {
+                var locale = number.toLocaleString();
+                var result = locale.replace(/,/g, '.');
+                return result;
+            }
+
+            function isPriceQuantity(id) {
+                if(id.indexOf("price")!=-1 || id.indexOf("quantity")!=-1) {
+                    return true;
+                }
+                return false;
+            }
+
+            function isTotal(id) {
+                if(id.indexOf("total")!=-1) {
                     return true;
                 }
                 return false;
@@ -103,11 +146,11 @@
                         $total = 'total-'.$i;
                     ?>
                     <fieldset class="ui-grid-d">
-                        <div class="ui-block-a"><input type="text" id="<?php echo $name; ?>" name="<?php echo $name; ?>" value="<?php echo $i; ?>" style="text-align: center;"></div>
-                        <div class="ui-block-b"><input type="text" value=""></div>
-                        <div class="ui-block-c"><input type="number" id="<?php echo $price; ?>" name="<?php echo $price; ?>" pattern="[0-9]*" value="" style="text-align: right;"></div>
-                        <div class="ui-block-d"><input type="number" id="<?php echo $quantity; ?>" name="<?php echo $quantity; ?>" pattern="[0-9]*" value="" style="text-align: right;"></div>
-                        <div class="ui-block-e"><input type="number" id="<?php echo $total; ?>" pattern="[0-9]*" value="" style="text-align: right;"></div>
+                        <div class="ui-block-a"><input type="text"  value="<?php echo $i; ?>" style="text-align: center;" readonly="readonly"></div>
+                        <div class="ui-block-b"><input type="text" id="<?php echo $name; ?>" name="<?php echo $name; ?>"value=""></div>
+                        <div class="ui-block-c"><input type="text" id="<?php echo $price; ?>" name="<?php echo $price; ?>" value="" style="text-align: right;" maxlength="3"></div>
+                        <div class="ui-block-d"><input type="text" id="<?php echo $quantity; ?>" name="<?php echo $quantity; ?>" value="" style="text-align: right;" maxlength="3"></div>
+                        <div class="ui-block-e"><input type="text" id="<?php echo $total; ?>" value="" style="text-align: right;" maxlength="6"></div>
                     </fieldset>
                 <?php endfor ?>
 
@@ -115,7 +158,7 @@
             <div class="ui-grid-b">
                 <div class="ui-block-a" style="width: 55% !important;"><div class="ui-bar ui-bar-a" style="height: 23px;">&nbsp;</div></div>
                 <div class="ui-block-b" style="width: 25% !important;"><div class="ui-bar ui-bar-a" style="height: 23px;">Tổng cộng</div></div>
-                <div class="ui-block-e"><input type="number" id="total" pattern="[0-9]*" value="" style="text-align: right;"></div>
+                <div class="ui-block-e"><input type="text" id="total" value="" style="text-align: right;" readonly="readonly"></div>
             </div>
 
 
