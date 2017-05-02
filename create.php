@@ -13,44 +13,9 @@
     <script src="jquery-mobile/demos/js/jquery.js"></script>
     <script src="jquery-mobile/demos/_assets/js/index.js"></script>
     <script src="jquery-mobile/demos/js/jquery.mobile-1.4.5.min.js"></script>
-
-
-    <script>
-        $( document ).on( "pagecreate", function() {
-            $( "body > [data-role='panel']" ).panel();
-            $( "body > [data-role='panel'] [data-role='listview']" ).listview();
-        });
-        $( document ).one( "pageshow", function() {
-            $( "body > [data-role='header']" ).toolbar();
-            $( "body > [data-role='header'] [data-role='navbar']" ).navbar();
-        });
-
-
-
-
-        $(document).ready(function(){
-            $("#btn-create").on('click', function(){
-                if(validate()){
-                    $("#frm-bill-setting").submit();
-                }
-            });
-
-            $("#btn-reset").on('click', function(){
-                $("#txt-name").text("");
-                $("#txt-quantity").text("");
-            });
-
-            $('#quantity').keypress(function(){
-                alert('press');
-            });
-
-
-            var validate = function(){
-                return true;
-            }
-        });
-
-    </script>
+    <script src="js/panel.js"></script>
+    <script src="js/create.js"></script>
+    <script src="js/detail.js"></script>
 </head>
 <body>
 
@@ -84,7 +49,6 @@
         <li data-icon="back"><a href="#" data-rel="close">Đóng</a></li>
         <li><a href="index.php">Trang Chủ</a></li>
         <li><a href="create.php">Tạo Bill Mới</a></li>
-        <li><a href="detail.php">Bill Chi Tiết</a></li>
     </ul>
 </div>
 
