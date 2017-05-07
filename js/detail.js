@@ -21,7 +21,7 @@ $(document).on('pageinit', function () {
 
     $('input').focusout(function () {
         var id = ($(this).attr('id'));
-        if (isTotal(id) && $(this).val() != 0) {
+        if (isTotal(id) && $(this).val() != 0 && $(this).val() != '') {
             var valueString = $(this).val();
             var value = valueString.replace(/\./g, '');
             var valueFormat = format(value);
@@ -62,9 +62,14 @@ $(document).on('pageinit', function () {
 
     function format(input){
         var number = input.toString();
+        var result = '';
+        if(number.indexOf("-") != -1) {
+            result = '-';
+            number = number.replace(/\-/g, '');
+        }
         var length = number.length;
         var thousand = length%3;
-        var result = '';
+
         for(var i=0;i<length;i++){
             if(thousand==0){
                 if(i==3) {
@@ -81,15 +86,19 @@ $(document).on('pageinit', function () {
     }
 
     function isPriceQuantity(id) {
-        if (id.indexOf("price") != -1 || id.indexOf("quantity") != -1) {
-            return true;
+        if(id != null && id != undefined){
+            if (id.indexOf("price") != -1 || id.indexOf("quantity") != -1) {
+                return true;
+            }
         }
         return false;
     }
 
     function isTotal(id) {
-        if (id.indexOf("total") != -1) {
-            return true;
+        if(id != null && id != undefined) {
+            if (id.indexOf("total") != -1) {
+                return true;
+            }
         }
         return false;
     }
