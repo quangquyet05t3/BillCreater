@@ -21,10 +21,11 @@ $(document).on('pageinit', function () {
 
     $('input').focusout(function () {
         var id = ($(this).attr('id'));
-        if (isTotal(id) && $(this).val() > 0) {
+        if (isTotal(id) && $(this).val() != 0) {
             var valueString = $(this).val();
             var value = valueString.replace(/\./g, '');
-            $(this).val(format(parseInt(value)));
+            var valueFormat = format(value);
+            $(this).val(valueFormat);
         }
         if (isPriceQuantity(id) || isTotal(id)) {
             var splitId = id.split("-");
@@ -35,7 +36,8 @@ $(document).on('pageinit', function () {
             var nameId = '#name-' + i;
             if ($(priceId).val() != "" && $(quantityId).val() != "") {
                 var totalItem = parseInt($(priceId).val()) * parseInt($(quantityId).val());
-                $(totalId).val(format(totalItem));
+                var valueFormat = format(totalItem);
+                $(totalId).val(valueFormat);
             }
             var quantitySetting = parseInt($('#quantity-setting').text());
             calculateAll(quantitySetting);
@@ -54,12 +56,27 @@ $(document).on('pageinit', function () {
                 total += parseInt(totalItem);
             }
         }
-        $('#total').val(format(total));
+        var valueFormat = format(total);
+        $('#total').val(valueFormat);
     }
 
-    function format(number) {
-        var locale = number.toLocaleString();
-        var result = locale.replace(/,/g, '.');
+    function format(input){
+        var number = input.toString();
+        var length = number.length;
+        var thousand = length%3;
+        var result = '';
+        for(var i=0;i<length;i++){
+            if(thousand==0){
+                if(i==3) {
+                    result = result + '.';
+                }
+            } else {
+                if(i==thousand && result != ''){
+                    result = result + '.';
+                }
+            }
+            result = result +  number[i].toString();
+        }
         return result;
     }
 
