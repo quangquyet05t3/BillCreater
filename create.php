@@ -47,7 +47,7 @@
 <div data-role="panel" id="outside" data-theme="b">
     <ul data-role="listview">
         <li data-icon="back"><a href="#" data-rel="close">Đóng</a></li>
-        <li><a href="index.php">Trang Chủ</a></li>
+        <li><a href="index.php">Giới thiệu</a></li>
         <li><a href="create.php">Tạo Bill Mới</a></li>
     </ul>
 </div>

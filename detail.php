@@ -40,8 +40,8 @@
             <div class="ui-grid-d">
                 <div class="ui-block-a"><div class="ui-bar ui-bar-a">&nbsp;</div></div>
                 <div class="ui-block-b"><div class="ui-bar ui-bar-a">Tên Hàng</div></div>
-                <div class="ui-block-c"><div class="ui-bar ui-bar-a">Giá</div></div>
                 <div class="ui-block-d"><div class="ui-bar ui-bar-a">SL</div></div>
+                <div class="ui-block-c"><div class="ui-bar ui-bar-a">Giá</div></div>
                 <div class="ui-block-e"><div class="ui-bar ui-bar-a">Tiền</div></div>
             </div>
                 <?php for($i=1;$i<=$quantitySetting;$i++): ?>
@@ -54,9 +54,9 @@
                     <fieldset class="ui-grid-d">
                         <div class="ui-block-a"><input type="text"  value="<?php echo $i; ?>" style="text-align: center;" readonly="readonly"></div>
                         <div class="ui-block-b"><input type="text" id="<?php echo $name; ?>" name="<?php echo $name; ?>"value=""></div>
-                        <div class="ui-block-c"><input type="text" id="<?php echo $price; ?>" name="<?php echo $price; ?>" value="" style="text-align: right;" maxlength="3"></div>
-                        <div class="ui-block-d"><input type="text" id="<?php echo $quantity; ?>" name="<?php echo $quantity; ?>" value="" style="text-align: right;" maxlength="3"></div>
-                        <div class="ui-block-e"><input type="text" id="<?php echo $total; ?>" value="" style="text-align: right;" maxlength="6"></div>
+                        <div class="ui-block-c"><input type="text" id="<?php echo $quantity; ?>" name="<?php echo $quantity; ?>" value="" style="text-align: right;" maxlength="3"></div>
+                        <div class="ui-block-d"><input type="text" id="<?php echo $price; ?>" name="<?php echo $price; ?>" value="" style="text-align: right;" maxlength="3"></div>
+                        <div class="ui-block-e"><input type="text" id="<?php echo $total; ?>" value="" style="text-align: right;" maxlength="7"></div>
                     </fieldset>
                 <?php endfor ?>
 
@@ -80,7 +80,7 @@
 <div data-role="panel" id="outside" data-theme="b">
     <ul data-role="listview">
         <li data-icon="back"><a href="#" data-rel="close">Đóng</a></li>
-        <li><a href="index.php">Trang Chủ</a></li>
+        <li><a href="index.php">Giới thiệu</a></li>
         <li><a href="create.php">Tạo Bill Mới</a></li>
     </ul>
 </div>
