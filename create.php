@@ -34,7 +34,7 @@
             <input type="text" name="name" id="txt-name" value="">
             <label for="number-2">Số hàng:</label>
             <input type="number" id="quantity" name="quantity" pattern="[0-9]*" id="txt-quantity" value="10" style="text-align: right;">
-            <input id="btn-create" type="button" value="Tạo bill" data-inline="true">
+            <input id="btn-create" type="submit" value="Tạo bill" data-inline="true">
             <input id="btn-reset" type="reset" value="Nhập lại" data-inline="true">
         </form>
     </div><!-- /content -->

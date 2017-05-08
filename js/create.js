@@ -1,7 +1,13 @@
 $(document).on('pageinit', function(){
-    $("#btn-create").on('click', function(){
+    var submit = false;
+    $("#btn-create").on('click', function(e){
+        e.preventDefault();
         if(validate()){
-            $("#frm-bill-setting").submit();
+            if(submit==false) {
+                submit = true;
+                $("#frm-bill-setting").submit();
+            }
+
         }
     });
 
