@@ -13,7 +13,6 @@
     <title>Bill Chi Tiết</title>
     <link rel="shortcut icon" href="jquery-mobile/demos/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="jquery-mobile/demos/css/themes/default/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="jquery-mobile/demos/_assets/css/jqm-demos.css">
     <link rel="stylesheet" href="css/main.css">
@@ -38,11 +37,11 @@
         <span id="quantity-setting" style="display: none"><?php echo $quantitySetting; ?></span>
         <div>
             <div class="ui-grid-d">
-                <div class="ui-block-a"><div class="ui-bar ui-bar-a">&nbsp;</div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-a">Tên Hàng</div></div>
-                <div class="ui-block-d"><div class="ui-bar ui-bar-a">SL</div></div>
-                <div class="ui-block-c"><div class="ui-bar ui-bar-a">Giá</div></div>
-                <div class="ui-block-e"><div class="ui-bar ui-bar-a">Tiền</div></div>
+                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">&nbsp;</div></div>
+                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">Tên Hàng</div></div>
+                <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">SL</div></div>
+                <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">Giá</div></div>
+                <div class="ui-block-e"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">Tiền</div></div>
             </div>
                 <?php for($i=1;$i<=$quantitySetting;$i++): ?>
                     <?php
@@ -62,8 +61,8 @@
 
 
             <div class="ui-grid-b">
-                <div class="ui-block-a" style="width: 55% !important;"><div class="ui-bar ui-bar-a" style="height: 23px;">&nbsp;</div></div>
-                <div class="ui-block-b" style="width: 25% !important;"><div class="ui-bar ui-bar-a" style="height: 23px;">Tổng</div></div>
+                <div class="ui-block-a" style="width: 56% !important;"><div class="ui-bar ui-bar-a" style="height: 16px;">&nbsp;</div></div>
+                <div class="ui-block-b" style="width: 24% !important;"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">Tổng</div></div>
                 <div class="ui-block-e"><input type="text" id="total" value="" style="text-align: right;" readonly="readonly"></div>
             </div>
 

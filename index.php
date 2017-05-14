@@ -16,6 +16,7 @@
     <script src="js/panel.js"></script>
     <script src="js/create.js"></script>
     <script src="js/detail.js"></script>
+    <script src="js/draft.js"></script>
 </head>
 <body>
 
