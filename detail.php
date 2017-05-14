@@ -61,7 +61,7 @@
 
 
             <div class="ui-grid-b">
-                <div class="ui-block-a" style="width: 56% !important;"><div class="ui-bar ui-bar-a" style="height: 16px;">&nbsp;</div></div>
+                <div class="ui-block-a" style="width: 56% !important;"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">&nbsp;</div></div>
                 <div class="ui-block-b" style="width: 24% !important;"><div class="ui-bar ui-bar-a" style="height: 16px; font-size: 15px;">Tổng</div></div>
                 <div class="ui-block-e"><input type="text" id="total" value="" style="text-align: right;" readonly="readonly"></div>
             </div>
