@@ -6,7 +6,6 @@
     <title>Kích hoạt</title>
     <link rel="shortcut icon" href="../jquery-mobile/demos/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="../jquery-mobile/demos/css/themes/default/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="../jquery-mobile/demos/_assets/css/jqm-demos.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -30,14 +29,14 @@
 
     <div role="main" class="ui-content">
         <form id="frm-active" method="get" action="execute.php">
-            <label for="text-1">Nhập mã kích hoạt:</label>
+            <label for="text-1">Nhập số điện thoại của bạn:</label>
             <input type="text" name="active-code" id="active-code" value="">
-
+            <input id="btn-active" type="button" value="Kích hoạt" data-inline="true">
+            <input id="btn-reset" type="reset" value="Nhập lại" data-inline="true">
         </form>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed" data-theme="a">
-        <input id="btn-active" type="button" value="Kích hoạt" data-inline="true">
-        <input id="btn-reset" type="reset" value="Nhập lại" data-inline="true">
+
     </div><!-- /footer -->
 
 </div><!-- /page -->

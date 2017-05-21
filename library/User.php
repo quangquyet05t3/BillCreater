@@ -41,7 +41,7 @@ class User
             $result = $stmt->fetchObject("User");
             $db = null;
             if(!$result)
-                throw new Exception("Mã xác nhận không chính xác");
+                throw new Exception("Số điện thoại này chưa được kích hoạt");
             return $result;
         }catch(PDOException $e) {
             throw new Exception($e->getMessage());
