@@ -29,11 +29,11 @@
     <div role="main" class="ui-content">
 
         <h2>Thiết lập</h2>
-        <form id="frm-bill-setting" method="get" action="detail.php">
+        <form id="frm-bill-setting" method="get" action="detail2.php">
             <label for="text-1">Tên khách:</label>
             <input type="text" name="name" id="txt-name" value="">
-            <label for="number-2">Số hàng:</label>
-            <input type="number" id="quantity" name="quantity" pattern="[0-9]*" id="txt-quantity" value="10" style="text-align: right;">
+            <label for="textarea">Nội dung:</label>
+            <textarea cols="40" rows="8" name="content" id="content" class="ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow" style="height: 80px;"></textarea>
             <button id="btn-create" type="submit" value="Tạo bill" data-inline="true" style="height: 30px !important; font-size: 15px !important; padding: 5px 10px 5px 10px;">Tạo bill</button>
             <button id="btn-reset" type="reset" value="Nhập lại" data-inline="true" style="height: 30px !important;; font-size: 15px !important; padding: 5px 10px 5px 10px;">Nhập lại</button>
         </form>
