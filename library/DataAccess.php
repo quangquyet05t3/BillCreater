@@ -3,9 +3,9 @@
 class DataAccess
 {
     const DB_HOST = "localhost";
-    const DB_USER = "id1722830_root";
-    const DB_PASS = "admin123";
-    const DB_NAME = "id1722830_billcreater3";
+    const DB_USER = "root";
+    const DB_PASS = "";
+    const DB_NAME = "bill_create";
     public function connect() {
         $dbHost = self::DB_HOST;
         $dbUser = self::DB_USER;

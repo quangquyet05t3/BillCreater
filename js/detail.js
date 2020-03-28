@@ -41,6 +41,7 @@ $(document).on('pageinit', function () {
             }
             var quantitySetting = parseInt($('#quantity-setting').text());
             calculateAll(quantitySetting);
+            storeDbAll(quantitySetting);
         }
 
     });
@@ -52,12 +53,38 @@ $(document).on('pageinit', function () {
             if ($(totalId).val() != "") {
                 var totalItemString = $(totalId).val();
                 var totalItem = totalItemString.replace(/\./g, '');
-
                 total += parseInt(totalItem);
             }
         }
         var valueFormat = format(total);
         $('#total').val(valueFormat);
+    }
+    
+    function storeDbAll(quantitySetting) {
+        var all = [];
+        var total = 0;
+        for (var i = 1; i <= quantitySetting; i++) {
+            var priceId = '#price-' + i;
+            var quantityId = '#quantity-' + i;
+            var nameId = '#name-' + i;
+            var totalId = '#total-' + i;
+            if ($(totalId).val() != "") {
+                var totalItemString = $(totalId).val();
+                var totalItem = totalItemString.replace(/\./g, '');
+                total += parseInt(totalItem);
+                var name = $(nameId).val();
+                var quantity = $(quantityId).val();
+                var price = $(priceId).val();
+                all.push({
+                    'name': name,
+                    'quantity': quantity,
+                    'price': price
+                });
+            }
+        }
+        var totalFormat = format(total);
+        var timeCreate = $('#time-create').text();
+        var allProduct = JSON.stringify(all);
     }
 
     function format(input){

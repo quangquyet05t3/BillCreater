@@ -34,6 +34,7 @@
 
     <div role="main" class="ui-content">
         <h3><?php echo ($nameSetting); ?></h3>
+        <span id="time-create" style="display: none"><?php echo time(); ?></span>
         <span id="quantity-setting" style="display: none"><?php echo $quantitySetting; ?></span>
         <div>
             <div class="ui-grid-d">
