@@ -26,13 +26,15 @@ CREATE TABLE `bill` (
   `all_data` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `total` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date_created` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `total_quantity` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `bill` */
 
-insert  into `bill`(`id`,`customer_name`,`all_data`,`total`,`date_created`) values 
-('1585396060','ghghghgh','ghghghg','100','2020-03-28 12:47:40');
+insert  into `bill`(`id`,`customer_name`,`all_data`,`total`,`date_created`,`total_quantity`) values 
+('1585435448','chi ly','[{\"name\":\"ao co tron\",\"quantity\":\"10\",\"price\":\"100\"},{\"name\":\"ao co tim\",\"quantity\":\"10\",\"price\":\"70\"}]','1.700','2020-03-28 23:44:08',NULL),
+('1585435972','','[{\"name\":\"quan jean\",\"quantity\":\"10\",\"price\":\"190\"}]','1.900','2020-03-28 23:52:52',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -63,6 +63,7 @@ $(document).on('pageinit', function () {
     function storeDbAll(quantitySetting) {
         var all = [];
         var total = 0;
+        var totalQuantity = 0;
         for (var i = 1; i <= quantitySetting; i++) {
             var priceId = '#price-' + i;
             var quantityId = '#quantity-' + i;
@@ -75,6 +76,7 @@ $(document).on('pageinit', function () {
                 var name = $(nameId).val();
                 var quantity = $(quantityId).val();
                 var price = $(priceId).val();
+                totalQuantity += parseInt(quantity);
                 all.push({
                     'name': name,
                     'quantity': quantity,
@@ -84,7 +86,24 @@ $(document).on('pageinit', function () {
         }
         var totalFormat = format(total);
         var timeCreate = $('#time-create').text();
-        var allProduct = JSON.stringify(all);
+        var allData = JSON.stringify(all);
+        var customerName = $('#name-setting').text();
+        var postData = {
+            "id": timeCreate,
+            "customerName": customerName,
+            "allData": allData,
+            "total": totalFormat,
+            "totalQuantity": totalQuantity.toString()
+        };
+        $.ajax({
+            type: "POST",
+            url: "/active/billexe.php",
+            data: JSON.stringify(postData),
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            }
+        });
     }
 
     function format(input){

@@ -2,10 +2,15 @@
 
 class DataAccess
 {
-    const DB_HOST = "localhost";
+    /*const DB_HOST = "localhost";
     const DB_USER = "root";
     const DB_PASS = "";
-    const DB_NAME = "bill_create";
+    const DB_NAME = "bill_create";*/
+
+    const DB_HOST = "localhost";
+    const DB_USER = "quyetle_bill";
+    const DB_PASS = "abc123!@#";
+    const DB_NAME = "quyetle_bill";
     public function connect() {
         $dbHost = self::DB_HOST;
         $dbUser = self::DB_USER;
@@ -13,6 +18,7 @@ class DataAccess
         $dbName = self::DB_NAME;
         $db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db->exec("set names utf8");
 
         return $db;
     }
