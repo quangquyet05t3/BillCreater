@@ -18,7 +18,7 @@ class Bill {
 
     public function saveBill($id, $customerName, $allData, $total, $totalQuantity) {
         try {
-            if(!empty($allData)) {
+            if($allData!='[]') {
                 $db = $this->dal->connect();
                 $sqlDelete = "DELETE FROM bill WHERE id=:id";
                 $stmtDelete = $db->prepare($sqlDelete);
