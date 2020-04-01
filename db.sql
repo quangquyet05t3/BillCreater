@@ -34,7 +34,10 @@ CREATE TABLE `bill` (
 
 insert  into `bill`(`id`,`customer_name`,`all_data`,`total`,`date_created`,`total_quantity`) values 
 ('1585435448','chi ly','[{\"name\":\"ao co tron\",\"quantity\":\"10\",\"price\":\"100\"},{\"name\":\"ao co tim\",\"quantity\":\"10\",\"price\":\"70\"}]','1.700','2020-03-28 23:44:08',NULL),
-('1585435972','','[{\"name\":\"quan jean\",\"quantity\":\"10\",\"price\":\"190\"}]','1.900','2020-03-28 23:52:52',NULL);
+('1585435972','','[{\"name\":\"quan jean\",\"quantity\":\"10\",\"price\":\"190\"}]','1.900','2020-03-28 23:52:52',NULL),
+('1585437951','','[{\"name\":\"Áo cổ tròn\",\"quantity\":\"10\",\"price\":\"80\"}]','800','2020-03-29 00:25:51','10'),
+('1585691474','chi ly','[{\"name\":\"hang 1\",\"quantity\":\"10\",\"price\":\"10\"},{\"name\":\"bill cu\",\"quantity\":\"\",\"price\":\"\"}]','200','2020-03-31 23:51:14','NaN'),
+('1585691656','chi ly','[{\"name\":\"Hang 1\",\"quantity\":\"10\",\"price\":\"100\"},{\"name\":\"Bill cu\",\"quantity\":\"\",\"price\":\"\"}]','1.500','2020-03-31 23:54:16','10');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

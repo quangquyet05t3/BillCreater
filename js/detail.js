@@ -72,16 +72,26 @@ $(document).on('pageinit', function () {
             if ($(totalId).val() != "") {
                 var totalItemString = $(totalId).val();
                 var totalItem = totalItemString.replace(/\./g, '');
-                total += parseInt(totalItem);
                 var name = $(nameId).val();
                 var quantity = $(quantityId).val();
                 var price = $(priceId).val();
-                totalQuantity += parseInt(quantity);
-                all.push({
-                    'name': name,
-                    'quantity': quantity,
-                    'price': price
-                });
+                if(quantity!="") {
+                    total += parseInt(totalItem);
+                    totalQuantity += parseInt(quantity);
+                    all.push({
+                        'name': name,
+                        'quantity': quantity,
+                        'price': price
+                    });
+                } else {
+                    all.push({
+                        'name': name,
+                        'quantity': '1',
+                        'price': totalItem
+                    });
+                }
+
+
             }
         }
         var totalFormat = format(total);
